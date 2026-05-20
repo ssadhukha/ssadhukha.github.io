@@ -1,0 +1,66 @@
+---
+layout: post
+title:  "Temporal ISC"
+subtitle: "Intersubject Correlation Reference, Part I"
+lede: "The original ISC spawned a few variants that don't always get clearly distinguished. Here's a breakdown of what each measures, starting with temporal ISC."
+date:   2026-05-19 08:00:00 -0400
+---
+
+ISC is a pretty popular cognitive neuroscience method for working with naturalistic data (i.e., people watching movies inside the MRI). It's so simple that it's hard to really credit anyone for inventing it. Over the years it spawned a few variants (spatial ISC, spatiotemporal ISC, etc.) that don't always get clearly distinguished in papers or during talks. Here's a quick breakdown of what each one measures, in three parts. 
+
+## Background
+
+Before ISC was introduced, traditional fMRI studies used block or event-related designs, typically comparing brain activity during two or more conditions (e.g., seeing houses vs. faces). But, these designs faced two major constraints: 
+
+1. **Highly controlled, repetitive stimuli.** You had to average across many trials to boost the signal-to-noise ratio, which meant experiments couldn't include a diverse range of stimuli without becoming impractically long. 
+
+2. **Predefining stimulus feature spaces.** With GLM-based analyses, you had to specify *exactly* which features of the stimulus would drive brain responses. For complex stimuli like narratives or natural scenes, defining this feature space was difficult or like, basically impossible.
+
+These constraints limited everything: your experimental design, your data, and ultimately the questions you could even ask. Studying higher-order cognition was especially hard.
+
+ISC came out of a growing interest in more complex, naturalistic stimuli [Hasson et al., 2004](#ref1). The basic assumption is simple: 
+
+> If a brain region is responding to the stimulus, it should respond similarly across people watching and/or listening to the same thing. 
+
+In other words, ISC identifies brain regions that track stimulus-locked events; by using consistency across subjects as the signal itself, it eliminates the need for both explicit stimulus models or repeated trials. 
+
+## Interpreting high ISC vs. low ISC
+
+High ISC is easy: those voxels are encoding something about the stimulus. This follows directly from the method's basic assumption.
+
+Low ISC is where it gets tricky. It might mean the region isn't tracking the stimulus at all, just spontaneous thought. Or it might be capturing something idiosyncratic — the interaction between the stimulus and a person's endogenous processing (past experiences, goals, internal states, etc.).
+
+Some folks will tell you low ISC is just uninterpretable. ¯\\\_(ツ)\_/¯
+
+
+## How to think about this stuff 
+
+One way I find helpful to think about ISC variants is to start with the question: what is the change in the signal that we care about? Is it how the signal changes over *time* (e.g. the time-varying signal)? Is it how the signal changes over *space*? Or both, across time *and* space? Thinking about it like this gives you a quick sense of what exactly goes into the vectors that you end up correlating.   
+
+
+## Temporal ISC (The original ISC) 
+
+#### What it measures
+
+How similar are subjects’ brain activity across time?  
+
+#### How it works
+This is the *original* ISC [Hasson et al., 2004](#ref1).
+
+1. Get each subject's BOLD time series (Voxels x Time) and correlate it with every other subject's BOLD time series (pairwise). This gives you a subject-by-subject correlation matrix. 
+
+2. Take the average of these pairwise correlations (using the upper or lower triangle of the matrix to avoid counting pairs twice) - this average is your ISC value. 
+
+![Schematic showing pairwise correlations of BOLD time series across subjects](/assets/isc1.png)
+
+This can be computed at multiple spatial scales: voxel-level (ISC for each voxel separately) or ROI-level (ISC for averaged activity within a region). For more, you can check out this [tutorial](https://naturalistic-data.org/content/Intersubject_Correlation.html) which breaks down this method further, includes example code, how to perform hypothesis tests, etc. 
+
+<div class="references-section">
+<ol>
+<li><a id="ref1"></a>Hasson, Uri, Yuval Nir, Ifat Levy, Galit Fuhrmann, and Rafael Malach. 2004. “Intersubject Synchronization of Cortical Activity during Natural Vision.” Science (New York, N.Y.) 303 (5664): 1634–40.</li>  
+  
+<li><a id="ref2"></a>Nastase, Samuel A., Valeria Gazzola, Uri Hasson, and Christian Keysers. 2019. “Measuring Shared Responses across Subjects Using Intersubject Correlation.” Social Cognitive and Affective Neuroscience 14 (6): 667–85.</li>
+  
+<li><a id="ref3"></a>Chang, Luke J., Eshin Jolly, Jin Hyun Cheong, Kristina M. Rapuano, Nathan Greenstein, Pin-Hao A. Chen, and Jeremy R. Manning. 2021. “Endogenous Variation in Ventromedial Prefrontal Cortex State Dynamics during Naturalistic Viewing Reflects Affective Experience.” Science Advances 7 (17). https://doi.org/10.1126/sciadv.abf7129.</li>
+</ol>
+</div>

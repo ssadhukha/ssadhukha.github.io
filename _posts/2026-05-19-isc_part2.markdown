@@ -1,0 +1,53 @@
+---
+layout: post
+title:  "Spatial ISC"
+subtitle: "Intersubject Correlation Reference, Part II"
+lede: "The spatial analogue to temporal ISC, measuring shared brain patterns across subjects."
+date:   2026-05-19 08:37:54 -0400
+---
+
+From Part I,
+
+> One way I find helpful to think about ISC variants is to start with the question: what is the change in the signal that we care about? Is it how the signal changes over *time* (e.g. the time-varying signal)? Is it how the signal changes over *space*? Or both, across time *and* space? Thinking about it like this gives you a quick sense of what exactly goes into the vectors that you end up correlating.   
+
+## Spatial ISC
+
+This is the spatial analogue of the original ISC. There's a few ways to think about this. I'll start with the simplest version which is also called “intersubject pattern correlation” (ISPC) [Nastase et al., 2019](#ref2).
+
+#### What it measures
+How similar are subjects' spatial patterns of brain activity, at a specific timepoint (or time window)?
+
+While temporal ISC asks "do subjects' brains respond at the same times?", spatial ISC asks "do subjects show the same spatial *pattern* of activation at a given moment?" This can reveal whether subjects are engaging the same network configuration during specific events, even if the overall timing varies. For example, during an emotional scene, do all subjects show a similar pattern of high vmPFC and low dlPFC activity?
+
+#### How it works
+Here, instead of correlating activity over time, we correlate spatial patterns across subjects at a *single* timepoint. Let's say we choose V1 (primary visual cortex) as our region of interest, which contains 500 voxels. And we're interested in the spatial pattern across subjects at timepoint 7. 
+
+1. At timepoint 7, extract each subject's spatial pattern, the activations across all 500 voxels. Each subject now has a 500-element vector.
+
+2. Correlate each subject's vector with every other subject's (pairwise). This gives you a subject-by-subject correlation matrix for that timepoint. You're asking: "Within V1, do subjects show the same pattern of which voxels are active?"
+
+3. Average these pairwise correlations (using the upper or lower triangle of the matrix to avoid counting pairs twice) - this average is your *spatial* ISC value for timepoint 7. 
+
+![Schematic showing spatial ISC computation at a single timepoint](/assets/isc2.png)
+
+That's it! Now here are the other fun things you can do. 
+
+## Tracking spatial ISC over time
+
+If you want to see how spatial ISC evolves over time, you can repeat steps 1-3 above for each timepoint! This would result in a separate subject-by-subject correlation matrix for each timepoint. From there, you can aggregate these into a single timecourse showing how spatial ISC evolves over time. This gives you a timecourse showing how spatial similarity within an ROI (like V1) changes across the stimulus (see Figure 1D in [Chang et al., 2021](#ref3) for an example).
+
+![Timecourse of spatial ISC values across the stimulus](/assets/isc3.png)
+
+## Other spatial scales
+
+You can also compute spatial ISC across multiple ROIs (e.g., vmPFC, dlPFC, V1, auditory cortex) or within specific brain networks (e.g., only DMN regions). The logic would be identical, you're just choosing different spatial units.  
+
+<div class="references-section">
+<ol>
+<li><a id="ref1"></a>Hasson, Uri, Yuval Nir, Ifat Levy, Galit Fuhrmann, and Rafael Malach. 2004. “Intersubject Synchronization of Cortical Activity during Natural Vision.” Science (New York, N.Y.) 303 (5664): 1634–40.</li>  
+  
+<li><a id="ref2"></a>Nastase, Samuel A., Valeria Gazzola, Uri Hasson, and Christian Keysers. 2019. “Measuring Shared Responses across Subjects Using Intersubject Correlation.” Social Cognitive and Affective Neuroscience 14 (6): 667–85.</li>
+  
+<li><a id="ref3"></a>Chang, Luke J., Eshin Jolly, Jin Hyun Cheong, Kristina M. Rapuano, Nathan Greenstein, Pin-Hao A. Chen, and Jeremy R. Manning. 2021. “Endogenous Variation in Ventromedial Prefrontal Cortex State Dynamics during Naturalistic Viewing Reflects Affective Experience.” Science Advances 7 (17). https://doi.org/10.1126/sciadv.abf7129.</li>
+</ol>
+</div>
