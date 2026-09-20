@@ -5,16 +5,18 @@ layout: page
 <div class="home-header">
   <div class="home-header-content">
     <h1>Sushmita Sadhukha</h1>
-    
+
     <div class="home-intro">
-      <p class="home-tagline">Cognitive neuroscience, naturalistic data, methods, & side projects.</p>
-      <p>Trying to understand how people make sense of stories. Find out more about me <a href="/about/">here</a> and browse my writing <a href="/blog/">here</a>.</p>
-      
+      <p>Hi, I'm Sush, a cognitive neuroscience PhD candidate.</p>
+      <p>I heard this somewhere recently: a good story lets you surf the wave of your own imagination.</p>
+      <p>Which is <em>kind of</em> what I study, actually.</p>
+      <p>Find out more <a href="/research/">here</a>.</p>
     </div>
   </div>
 
-  <div class="home-header-image">
-    <img src="/assets/ghost_mushroom.png" alt="Ghost mushroom drawing">
+  <div class="home-header-banner">
+    <img src="/assets/budva_coast.png" alt="Budva coast">
+    <p class="home-header-caption">Adriatic coast, Budva, Montenegro, 2026</p>
   </div>
 </div>
 
