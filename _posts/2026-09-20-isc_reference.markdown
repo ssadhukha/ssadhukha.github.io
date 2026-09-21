@@ -105,7 +105,9 @@ Because you're correlating across voxels here, the voxels have to be functionall
 
 ## How to think about this stuff
 
-One way I find helpful to think about ISC variants is to start with the question: what is the change in the signal that we care about? Is it how the signal changes over *time*? Is it how the signal changes over *space*? Or both, across time *and* space? Thinking about it like this gives you a quick sense of what exactly goes into the vectors that you end up correlating. 
+One way I find helpful to think about ISC variants is to start with the question: what is the change in the signal that we care about? Is it how the signal changes over *time*? Is it how the signal changes over *space*? Or both, across time *and* space? Thinking about it like this gives you a quick sense of what exactly goes into the vectors that you end up correlating.
+
+<p class="post-footnote">Figures/schemas were made in Adobe Illustrator.</p>
 
 <div class="references-section">
 <ol>
@@ -117,5 +119,3 @@ One way I find helpful to think about ISC variants is to start with the question
 
 </ol>
 </div>
-
-<p class="post-footnote">Figures/schemas were made in Adobe Illustrator.</p>
