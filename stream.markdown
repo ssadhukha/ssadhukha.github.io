@@ -1,12 +1,12 @@
 ---
-layout: stream-page
+layout: page
 title: Stream
 permalink: /stream/
 show_quote: true
 ---
 
 <div class="stream-header">
-  <p>Some low-friction, unfinished thoughts, ideas...</p>
+  <p>of unfinished thoughts, ideas...</p>
 </div>
 
 {% assign stream_posts = site.data.stream | reverse %}
