@@ -167,33 +167,33 @@ h1 {
     padding-bottom: 20px;
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   }
-  
+
   .stream-item:last-child {
     border-bottom: none;
   }
-  
+
   .stream-meta {
     min-width: 150px;
-    margin-right: 20px;
+    margin-right: 5px;
     flex-shrink: 0;
   }
-  
+
   .stream-date {
     font-size: 12px;
     color: rgba(0, 0, 0, 0.5);
     margin-bottom: 5px;
   }
-  
+
   .stream-title {
     font-size: 16px;
     font-weight: bold;
     color: rgba(0, 0, 0, 0.8);
     margin-bottom: 10px;
   }
-  
+
   .stream-content {
     flex: 1;
-    font-size: 15px;
+    font-size: 14px;
     line-height: 1.6em;
     color: rgba(0, 0, 0, 0.8);
   }
@@ -209,7 +209,7 @@ h1 {
     all: unset !important;
     display: block !important;
     font-family: -apple-system, Helvetica, arial, sans-serif !important;
-    font-size: 15px !important;
+    font-size: 14px !important;
     color: rgba(0, 0, 0, 0.8) !important;
     line-height: 1.6em !important;
   }
@@ -343,6 +343,11 @@ h1 {
   color: rgba(0, 0, 0, 0.8);
   margin-bottom: 20px;
   line-height: 1.2em;
+}
+
+.stream-title,
+.page-title {
+  font-family: 'Departure Mono', monospace;
 }
 
 /* Optional: Style H2 and H3 similarly but smaller */
@@ -647,6 +652,13 @@ figcaption {
 /* Number the references */
 .references-section ol {
   padding-left: 20px;
+}
+
+.post-footnote {
+  margin-top: 20px;
+  font-size: 12px;
+  font-style: italic;
+  color: rgba(0, 0, 0, 0.5);
 }
 
 .references-section li {

@@ -8,7 +8,7 @@ layout: page
 
     <div class="home-intro">
       <p>Hi, I'm Sush, a cognitive neuroscience PhD candidate.</p>
-      <p>I heard this somewhere recently: a good story lets you surf the wave of your own imagination.</p>
+      <p>I heard this somewhere recently: a good story lets you surf the *wave* of your own imagination.</p>
       <p>Which is <em>kind of</em> what I study, actually.</p>
       <p>Find out more <a href="/research/">here</a>.</p>
     </div>

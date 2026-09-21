@@ -117,3 +117,5 @@ One way I find helpful to think about ISC variants is to start with the question
 
 </ol>
 </div>
+
+<p class="post-footnote">Figures/schemas were made in Adobe Illustrator.</p>
